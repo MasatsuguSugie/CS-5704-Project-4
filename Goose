@@ -1,0 +1,38 @@
+package ducksim;
+
+/**
+ * <p>
+ * This is the goose class. It creates a goose.
+ * </p>
+ * 
+ * @author sugie
+ * @version Apr 26, 2019
+ */
+public class Goose
+{
+    /**
+     * <p>
+     * Returns the Goose string Honk!.
+     * </p>
+     * 
+     * @return the Goose string Honk!.
+     */
+    public String getHonk()
+    {
+        return "Honk!";
+
+    }
+
+
+    /**
+     * <p>
+     * Returns the Goose name Goose.
+     * </p>
+     * 
+     * @return the Goose name Goose.
+     */
+    public String getName()
+    {
+        return "Goose";
+    }
+}
