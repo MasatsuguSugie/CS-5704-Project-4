@@ -1,0 +1,29 @@
+package ducksim;
+
+/**
+ * <p>
+ * This is the fly no way class. It sets a ducks fly behavior as swimming.
+ * </p>
+ * 
+ * @author sugie
+ * @version Apr 24, 2019
+ */
+public class FlyNoWay
+    implements FlyBehavior
+{
+
+    /**
+     * <p>
+     * {@inheritDoc}
+     * </p>
+     * 
+     * @return swimming duck.
+     */
+    @Override
+    public State getState()
+    {
+        return State.SWIMMING;
+
+    }
+
+}
