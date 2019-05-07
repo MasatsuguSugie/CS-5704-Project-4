@@ -1,0 +1,36 @@
+package ducksim;
+
+import java.awt.Color;
+
+/**
+* <p>
+ * This is the redhead duck class. It creates a redhead duck.
+ * </p>
+ * 
+ *  @author sugie
+ *  @version May 7, 2019
+ */
+public class RedheadDuck
+    extends Duck
+{
+
+    /**
+     * <p>
+     * Create a new RedheadDuck object.
+     * </p>
+     */
+    public RedheadDuck()
+    {
+        setColor(Color.RED);
+        flyBehavior = new FlyWithWings();
+        quackBehavior = new QuackNormal();
+    }
+
+
+    @Override
+    public String display()
+    {
+        return "Redhead";
+    }
+
+}
