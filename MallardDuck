@@ -1,0 +1,36 @@
+package ducksim;
+
+import java.awt.Color;
+
+/**
+ * <p>
+ * This is the mallard duck class. It creates a mallard duck.
+ * </p>
+ * 
+ * @author mjohn
+ * @version May 7, 2019
+ */
+public class MallardDuck
+    extends Duck
+{
+
+    /**
+     * <p>
+     * Create a new MallardDuck object.
+     * </p>
+     */
+    public MallardDuck()
+    {
+        setColor(Color.GREEN);
+        flyBehavior = new FlyWithWings();
+        quackBehavior = new QuackNormal();
+    }
+
+
+    @Override
+    public String display()
+    {
+        return "Mallard";
+    }
+
+}
