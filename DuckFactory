@@ -85,7 +85,7 @@ public class DuckFactory
      * This method gets an instance of a duck factory.
      * </p>
      * 
-     * @return and instance of a duck
+     * @return an instance of a duck
      */
     public static DuckFactory getInstance()
     {
