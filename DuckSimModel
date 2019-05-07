@@ -1,0 +1,217 @@
+package ducksim;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * <p>
+ * DuckSimModel is the model portion of the DuckSim MVC pattern.
+ * </p>
+ *
+ * @author sugie
+ */
+public class DuckSimModel
+    implements Iterable<Duck>
+{
+
+    // ==========================================================
+    // Private fields
+    // ==========================================================
+    private final int          MAX         = 8;
+    private int                currentDuck = -1;
+    private final List<Duck>   ducks       = new ArrayList<>();
+    private final Set<Integer> selected    = new HashSet<>();
+
+    // ==========================================================
+    // Public methods
+    // ==========================================================
+
+
+    /**
+     * <p>
+     * Returns the maximum number of ducks permitted.
+     * </p>
+     * 
+     * @return max number of ducks permitted
+     */
+    public int maxDuckCount()
+    {
+        return MAX;
+    }
+
+
+    /**
+     * <p>
+     * Returns the current number of ducks.
+     * </p>
+     * 
+     * @return duck size
+     */
+    public int currDuckCount()
+    {
+        return ducks.size();
+    }
+
+
+    /**
+     * <p>
+     * Returns the index of the current duck.
+     * </p>
+     * 
+     * @return current duck
+     */
+    public int getCurrentDuck()
+    {
+        return currentDuck;
+    }
+
+
+    /**
+     * <p>
+     * Sets the current duck index to the specified integer.
+     * </p>
+     * 
+     * @param i
+     */
+    public void setCurrentDuck(int i)
+    {
+        assert containsDuck(i);
+        this.currentDuck = i;
+    }
+
+
+    /**
+     * <p>
+     * Returns true if a duck is at the specified index.
+     * </p>
+     * 
+     * @param i
+     * @return true if a duck is at the specified index
+     */
+    public boolean containsDuck(int i)
+    {
+        return 0 <= i && i < ducks.size();
+    }
+
+
+    /**
+     * <p>
+     * Returns true if there is room to add a new duck.
+     * </p>
+     * 
+     * @return true if there is room to add a new duck
+     */
+    public boolean canAddNewDuck()
+    {
+        return ducks.size() < MAX;
+    }
+
+
+    /**
+     * <p>
+     * Adds a new duck to the model.
+     * </p>
+     * 
+     * @param d
+     */
+    public void addNewDuck(Duck d)
+    {
+        assert canAddNewDuck();
+        ducks.add(d);
+    }
+
+
+    /**
+     * <p>
+     * Deletes the duck at the specified index.
+     * </p>
+     * 
+     * @param i
+     */
+    public void deleteDuck(int i)
+    {
+        assert containsDuck(i);
+        ducks.remove(i);
+    }
+
+
+    /**
+     * <p>
+     * Returns a handle to the duck at the specified index.
+     * </p>
+     * 
+     * @param i
+     * @return duck
+     */
+    public Duck getDuck(int i)
+    {
+        assert containsDuck(i);
+        return ducks.get(i);
+    }
+
+
+    /**
+     * <p>
+     * Selects the duck at the specified index.
+     * </p>
+     * 
+     * @param i
+     */
+    public void selectDuck(int i)
+    {
+        assert containsDuck(i);
+        selected.add(i);
+    }
+
+
+    /**
+     * <p>
+     * Deselects the duck at the specified index.
+     * </p>
+     * 
+     * @param i
+     */
+    public void deselectDuck(int i)
+    {
+        assert containsDuck(i);
+        selected.remove(i);
+    }
+
+
+    /**
+     * <p>
+     * Returns true if the duck at the specified index is selected.
+     * </p>
+     * 
+     * @param i
+     * @return selected duck
+     */
+    public boolean isSelected(int i)
+    {
+        return selected.contains(i);
+    }
+
+
+    /**
+     * <p>
+     * Returns true if no ducks are selected.
+     * </p>
+     * 
+     * @return empty duck
+     */
+    public boolean noSelectedDucks()
+    {
+        return selected.isEmpty();
+    }
+
+
+    @Override
+    public Iterator<Duck> iterator()
+    {
+        return ducks.iterator();
+    }
+
+}
