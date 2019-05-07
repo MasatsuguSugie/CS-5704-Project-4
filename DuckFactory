@@ -1,0 +1,99 @@
+package ducksim;
+
+import java.util.Observable;
+
+/**
+ * <p>
+ * This class is the duck factory. It creates a new instance of a duck.
+ * </p>
+ * 
+ * @author sugie
+ * @version Apr 25, 2019
+ */
+public class DuckFactory
+    extends Observable
+{
+    /**
+     * 
+     */
+    private static DuckFactory uniqueInstance;
+    /**
+     * 
+     */
+    Duck                       duck;
+
+
+    /**
+     * <p>
+     * This method creates a new duck.
+     * </p>
+     * 
+     * @param duckType
+     * @param starCount
+     * @param moonCount
+     * @param crossCount
+     * @return a duck
+     */
+    public Duck createDuck(String duckType, int starCount, int moonCount, int crossCount)
+    {
+        switch (duckType)
+        {
+            case "Mallard":
+                duck = new MallardDuck();
+
+                break;
+            case "Redhead":
+                duck = new RedheadDuck();
+
+                break;
+            case "Rubber":
+                duck = new RubberDuck();
+
+                break;
+            case "Decoy":
+                duck = new DecoyDuck();
+
+                break;
+            case "Goose":
+                duck = new GooseDuck(new Goose());
+
+                break;
+            default:
+                duck = null;
+        }
+        for (int i = 0; i < starCount; i++)
+        {
+            duck = new StarBling(duck);
+        }
+        for (int i = 0; i < moonCount; i++)
+        {
+            duck = new MoonBling(duck);
+        }
+        for (int i = 0; i < crossCount; i++)
+        {
+            duck = new CrossBling(duck);
+        }
+        notifyObservers();
+        setChanged();
+        return duck;
+
+    }
+
+
+    /**
+     * <p>
+     * This method gets an instance of a duck factory.
+     * </p>
+     * 
+     * @return and instance of a duck
+     */
+    public static DuckFactory getInstance()
+    {
+        if (uniqueInstance == null)
+        {
+            uniqueInstance = new DuckFactory();
+        }
+        return uniqueInstance;
+    }
+
+}
