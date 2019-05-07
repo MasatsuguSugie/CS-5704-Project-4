@@ -1,0 +1,22 @@
+package ducksim;
+
+/**
+ * <p>
+ * This is the duck flying behavior interface.
+ * </p>
+ * 
+ * @author sugie
+ * @version Apr 24, 2019
+ */
+public interface FlyBehavior
+{
+    /**
+     * <p>
+     * Returns the flying state of the duck.
+     * </p>
+     * 
+     * @return the state of the duck.
+     */
+    public State getState();
+
+}
