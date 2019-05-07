@@ -1,0 +1,32 @@
+package ducksim;
+
+/**
+ * <p>
+ * This is the duck quacking behavior interface.
+ * </p>
+ * 
+ * @author sugie
+ * @version Apr 24, 2019
+ */
+public interface QuackBehavior
+{
+    /**
+     * <p>
+     * Returns the quacking state of the duck.
+     * </p>
+     * 
+     * @return the quacking state of the duck.
+     */
+    public State getState();
+
+
+    /**
+     * <p>
+     * Returns the quacking string of the duck.
+     * </p>
+     * 
+     * @return the quacking string of the duck.
+     */
+    public String getQuack();
+
+}
