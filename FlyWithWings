@@ -1,0 +1,29 @@
+package ducksim;
+
+/**
+ * <p>
+ * This is the fly with wings class. It sets the ducks flying behavior as flying.
+ * </p>
+ * 
+ * @author sugie
+ * @version Apr 24, 2019
+ */
+public class FlyWithWings
+    implements FlyBehavior
+{
+
+    /**
+     * <p>
+     * {@inheritDoc}
+     * </p>
+     * 
+     * @return flying duck.
+     */
+    @Override
+    public State getState()
+    {
+        return State.FLYING;
+
+    }
+
+}
