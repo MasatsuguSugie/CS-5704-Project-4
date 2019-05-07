@@ -1,0 +1,29 @@
+package ducksim;
+
+/**
+ * <p>
+ * This is the enum class for the states of the ducks.
+ * </p>
+ * 
+ * @author sugie
+ * @version May 4, 2019
+ */
+public enum State
+{
+    /**
+     * 
+     */
+    SWIMMING,
+    /**
+     * 
+     */
+    FLYING,
+    /**
+     * 
+     */
+    QUACKING,
+    /**
+     * 
+     */
+    WELCOMING
+}
