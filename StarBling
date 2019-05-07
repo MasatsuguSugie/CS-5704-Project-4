@@ -1,0 +1,34 @@
+package ducksim;
+
+/**
+ * <p>
+ * This class puts a "*" String on the duck.
+ * </p>
+ * 
+ * @author sugie
+ * @version Apr 25, 2019
+ */
+public class StarBling
+    extends Bling
+{
+
+    /**
+     * <p>
+     * Create a new StarBling object.
+     * </p>
+     * 
+     * @param d
+     */
+    public StarBling(Duck d)
+    {
+        super(d);
+    }
+
+
+    @Override
+    public String display()
+    {
+        return duck.display() + ":*";
+    }
+
+}
