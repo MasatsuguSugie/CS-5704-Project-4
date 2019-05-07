@@ -1,0 +1,56 @@
+package ducksim;
+
+/**
+ * <p>
+ * This is the goose adapter. It adapts the goose class to a duck.
+ * </p>
+ * 
+ * @author sugie
+ * @version Apr 26, 2019
+ */
+public class GooseDuck
+    extends Duck
+{
+    /**
+     * 
+     */
+    Goose goose;
+
+
+    /**
+     * <p>
+     * Create a new GooseDuck object.
+     * </p>
+     * 
+     * @param goose
+     */
+    public GooseDuck(Goose goose)
+    {
+        this.goose = goose;
+        flyBehavior = new FlyWithWings();
+        quackBehavior = new QuackNormal();
+    }
+
+
+    @Override
+    public String getQuack()
+    {
+        return goose.getHonk();
+    }
+
+
+    /**
+     * <p>
+     * Returns the String display of the goose.
+     * </p>
+     * 
+     * @return the goose name.
+     */
+    @Override
+    public String display()
+    {
+        return goose.getName();
+
+    }
+
+}
