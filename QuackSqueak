@@ -1,0 +1,37 @@
+package ducksim;
+
+/**
+ * <p>
+ * This is the quack squeak class. It sets the ducks quacking behavior as squeaking.
+ * </p>
+ * 
+ * @author sugie
+ * @version Apr 24, 2019
+ */
+public class QuackSqueak
+    implements QuackBehavior
+{
+
+    /**
+     * <p>
+     * {@inheritDoc}
+     * </p>
+     */
+    @Override
+    public State getState()
+    {
+        return State.QUACKING;
+    }
+
+
+    /**
+     * <p>
+     * {@inheritDoc}
+     * </p>
+     */
+    @Override
+    public String getQuack()
+    {
+        return "Squeak!";
+    }
+}
