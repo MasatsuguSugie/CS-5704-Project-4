@@ -1,0 +1,36 @@
+package ducksim;
+
+import java.awt.Color;
+
+/**
+ * <p>
+ * This is the rubber duck class. It creates a rubber duck.
+ * </p>
+ * 
+ * @author sugie
+ * @version May 7, 2019
+ */
+public class RubberDuck
+    extends Duck
+{
+
+    /**
+     * <p>
+     * Create a new RubberDuck object.
+     * </p>
+     */
+    public RubberDuck()
+    {
+        setColor(Color.YELLOW);
+        flyBehavior = new FlyNoWay();
+        quackBehavior = new QuackSqueak();
+    }
+
+
+    @Override
+    public String display()
+    {
+        return "Rubber";
+    }
+
+}
