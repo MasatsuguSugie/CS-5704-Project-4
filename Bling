@@ -1,0 +1,48 @@
+package ducksim;
+
+/**
+ * <p>
+ * This is the abstract Bling class. It creates the to be placed on the ducks.
+ * </p>
+ * 
+ * @author sugie
+ * @version Apr 25, 2019
+ */
+public abstract class Bling
+    extends Duck
+{
+    /**
+     * 
+     */
+    Duck duck;
+
+
+    /**
+     * <p>
+     * Create a new Bling object.
+     * </p>
+     * 
+     * @param d
+     */
+    public Bling(Duck d)
+    {
+        duck = d;
+        setColor(d.getColor());
+        flyBehavior = duck.flyBehavior;
+        quackBehavior = duck.quackBehavior;
+    }
+
+
+    /**
+     * <p>
+     * Returns the ducks bling.
+     * </p>
+     * 
+     * @return the ducks bling.
+     */
+    @Override
+    public String display()
+    {
+        return duck.display();
+    }
+}
