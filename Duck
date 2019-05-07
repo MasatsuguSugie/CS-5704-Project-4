@@ -1,0 +1,238 @@
+package ducksim;
+
+import java.awt.Color;
+import java.util.Observable;
+import java.util.Observer;
+
+/**
+ * <p>
+ * This is the abstract duck class. It defines all the duck actions and behaviors.
+ * </p>
+ * 
+ * @author sugie
+ * @version May 2, 2019
+ */
+public abstract class Duck
+    implements Observer
+{
+
+    private Color   color    = Color.BLACK;
+    private State   state    = State.SWIMMING;
+    private boolean isFree   = true;
+    private boolean isOnDSWC = false;
+    /**
+     * 
+     */
+    FlyBehavior     flyBehavior;
+    /**
+     * 
+     */
+    QuackBehavior   quackBehavior;
+    /**
+     * 
+     */
+    FlyBehavior     originalFlyBehavior;
+    /**
+     * 
+     */
+    QuackBehavior   originalQuackBehavior;
+
+
+    // typical duck commands
+
+    /**
+     * <p>
+     * This method sets the initial duck state as swimming.
+     * </p>
+     */
+    public void swim()
+    {
+        state = State.SWIMMING;
+    }
+
+
+    /**
+     * <p>
+     * This method gets the ducks quack state.
+     * </p>
+     */
+    public void quack()
+    {
+        state = quackBehavior.getState();
+    }
+
+
+    /**
+     * <p>
+     * This method returns a duck quack.
+     * </p>
+     * 
+     * @return a duck quack
+     */
+    public String getQuack()
+    {
+        return quackBehavior.getQuack();
+    }
+
+
+    /**
+     * <p>
+     * This method gets the ducks flying state.
+     * </p>
+     */
+    public void fly()
+    {
+        state = flyBehavior.getState();
+    }
+
+
+    /**
+     * <p>
+     * This method returns the ducks state.
+     * </p>
+     * 
+     * @return the ducks state
+     */
+    public State getState()
+    {
+        return state;
+    }
+
+
+    /**
+     * <p>
+     * This method sets the ducks state.
+     * </p>
+     * 
+     * @param state
+     *            is the state of the duck
+     */
+    public void setState(State state)
+    {
+        this.state = state;
+    }
+
+
+    /**
+     * <p>
+     * This method sets the color of the duck.
+     * </p>
+     * 
+     * @param c
+     *            is the color of the duck
+     */
+    public void setColor(Color c)
+    {
+        color = c;
+    }
+
+
+    /**
+     * <p>
+     * This method gets the color of the duck.
+     * </p>
+     * 
+     * @return the color of the duck
+     */
+    public Color getColor()
+    {
+        return color;
+    }
+
+
+    // join / quit and capture / release commands
+
+    /**
+     * <p>
+     * This method sets the ducks state as having joined the duck welcoming committee.
+     * </p>
+     */
+    public void joinDSWC()
+    {
+        isOnDSWC = true;
+        DuckFactory.getInstance().addObserver(this);
+    }
+
+
+    /**
+     * <p>
+     * This method sets the ducks state as having quit the duck welcoming committee.
+     * </p>
+     */
+    public void quitDSWC()
+    {
+        isOnDSWC = false;
+        DuckFactory.getInstance().deleteObserver(this);
+    }
+
+
+    /**
+     * <p>
+     * This method returns true if a duck is on the welcoming committee.
+     * </p>
+     * 
+     * @return true if the duck is on the welcoming committee
+     */
+    public boolean isOnDSWC()
+    {
+        return isOnDSWC;
+    }
+
+
+    /**
+     * <p>
+     * This method captures the duck.
+     * </p>
+     */
+    public void capture()
+    {
+        originalFlyBehavior = flyBehavior;
+        originalQuackBehavior = quackBehavior;
+        flyBehavior = new FlyNoWay();
+        quackBehavior = new QuackNoWay();
+        isFree = false;
+    }
+
+
+    /**
+     * <p>
+     * This method releases the duck.
+     * </p>
+     */
+    public void release()
+    {
+        flyBehavior = originalFlyBehavior;
+        quackBehavior = originalQuackBehavior;
+        isFree = true;
+    }
+
+
+    /**
+     * <p>
+     * Returns true if Duck is not captured.
+     * </p>
+     * 
+     * @return true if Duck is not captured
+     */
+    public boolean isFree()
+    {
+        return isFree;
+    }
+
+
+    /**
+     * <p>
+     * Returns the String display of the Duck.
+     * </p>
+     * 
+     * @return the String display of the Duck
+     */
+    public abstract String display();
+
+
+    public void update(Observable o, Object arg)
+    {
+        state = State.WELCOMING;
+    }
+
+}
