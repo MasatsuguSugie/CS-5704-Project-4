@@ -1,0 +1,36 @@
+package ducksim;
+
+import java.awt.Color;
+
+/**
+ * <p>
+ * This is the decoy duck class. It creates a decoy duck.
+ * </p>
+ * 
+ * @author mjohn
+ * @version May 7, 2019
+ */
+public class DecoyDuck
+    extends Duck
+{
+
+    /**
+     * <p>
+     * Create a new DecoyDuck object.
+     * </p>
+     */
+    public DecoyDuck()
+    {
+        setColor(Color.ORANGE);
+        flyBehavior = new FlyNoWay();
+        quackBehavior = new QuackNoWay();
+    }
+
+
+    @Override
+    public String display()
+    {
+        return "Decoy Duck";
+    }
+
+}
