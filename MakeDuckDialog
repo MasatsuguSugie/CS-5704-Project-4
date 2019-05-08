@@ -19,6 +19,10 @@ import javax.swing.JPanel;
 public class MakeDuckDialog
     extends JDialog
 {
+    /**
+     * 
+     */
+    DuckSimModel               model        = new DuckSimModel();
 
     // Fields
 
@@ -162,7 +166,10 @@ public class MakeDuckDialog
             // makeDuckDialog
             Duck duck =
                 DuckFactory.getInstance().createDuck(duckType, starCount, moonCount, crossCount);
-            model.addNewDuck(duck);
+            if (duck != null && (model.currDuckCount() < model.maxDuckCount()))
+            {
+                model.addNewDuck(duck);
+            }
             view.repaint();
             this.dispose();
         });
