@@ -19,11 +19,6 @@ import javax.swing.JPanel;
 public class MakeDuckDialog
     extends JDialog
 {
-    /**
-     * 
-     */
-    DuckSimModel               model        = new DuckSimModel();
-
     // Fields
 
     // Duck panel
