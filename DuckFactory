@@ -23,6 +23,12 @@ public class DuckFactory
     Duck                       duck;
 
 
+    private DuckFactory()
+    {
+        //
+    }
+
+
     /**
      * <p>
      * This method creates a new duck.
