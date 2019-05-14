@@ -45,4 +45,18 @@ public abstract class Bling
     {
         return duck.display();
     }
+    
+    
+    /**
+     * <p>
+     * Returns the ducks quack.
+     * </p>
+     * 
+     * @return the ducks quack.
+     */
+    @Override
+    public String getQuack()
+    {
+        return duck.getQuack();
+    }
 }
