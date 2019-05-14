@@ -27,6 +27,7 @@ public class GooseDuck
     public GooseDuck(Goose goose)
     {
         this.goose = goose;
+        setColor(Color.BLUE);
         flyBehavior = new FlyWithWings();
         quackBehavior = new QuackNormal();
     }
